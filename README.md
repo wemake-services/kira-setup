@@ -4,6 +4,27 @@
 [![kira-family](https://img.shields.io/badge/kira-family-pink.svg)](https://github.com/wemake-services/kira)
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/wemake-services/kira-setup/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
 
-Automate routine work with creating new projects.
+CLI utility to automate routine work with creating new projects.
 
 Part of the [`@kira`](https://github.com/wemake-services/kira) bots family.
+
+
+## Installation
+
+```
+pip install kira-setup
+```
+
+## Running
+
+```
+kira-setup group_or_user_name/project_name --token=YOUR_ACCESS_TOKEN
+```
+
+## Features
+
+We use this CLI to setup high quality standards for our repository.
+Features that we care about:
+1. Protected `master` and tags for releases only
+2. Mandatory code reviews
+3. Integration with [`kira-stale`](https://github.com/wemake-services/kira-stale) and [`kira-release`](https://github.com/wemake-services/kira-release)
