@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "kira-setup"
+version = "0.1.0"
+description = "Kira's CLI to setup new projects"
+authors = ["sobolevn <mail@sobolevn.me>"]
+license = "MIT"
+readme = "README.md"
+
+repository = "https://github.com/wemake-services/kira-setup"
+homepage = "https://github.com/wemake-services/kira-setup"
+
+keywords = [
+  "wemake.services",
+  "gitlab-bot",
+  "gitlab",
+  "kira",
+  "kira-bot"
+]
+
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: Implementation :: CPython"
+]
+
+[tool.poetry.scripts]
+kira-setup = "kira_setup.cli:main"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+python-gitlab = "^1.8"
+termcolor = "^1.1"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.700.0"
+wemake-python-styleguide = "^0.8.1"
+safety = "^1.8"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
