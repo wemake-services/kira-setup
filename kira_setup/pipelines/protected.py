@@ -3,7 +3,10 @@
 import gitlab
 from gitlab.v4.objects import Project
 
+from kira_setup.decorators import idempotent
 
+
+@idempotent
 def branches(project: Project) -> None:
     """
     Creates protected branch rules.
@@ -17,6 +20,7 @@ def branches(project: Project) -> None:
     })
 
 
+@idempotent
 def tags(project: Project) -> None:
     """
     Creates protected tag rules.

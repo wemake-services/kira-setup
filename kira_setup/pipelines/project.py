@@ -2,11 +2,14 @@
 
 from gitlab.v4.objects import Project
 
+from kira_setup.decorators import idempotent
+
 #: Enforces conventional commits,
 #: see https://github.com/wemake-services/kira-release
 regex = r'^(revert: )?(feat|fix|docs|refactor|chore)(\(.+\))?:.{1,50}refs #\d+'
 
 
+@idempotent
 def star(project: Project) -> None:
     """
     Stars the given project.

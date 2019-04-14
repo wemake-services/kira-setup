@@ -14,7 +14,7 @@ def _get_project(context) -> Project:
         timeout=10,
     )
 
-    return gl.projects.get(context.path[0])
+    return gl.projects.get(context.path)
 
 
 def _start_pipeline(current_project: Project) -> None:
@@ -25,7 +25,7 @@ def _start_pipeline(current_project: Project) -> None:
 
         merge_requests.approvals,
 
-        labels.create,
+        labels.create_labels,
 
         protected.branches,
         protected.tags,

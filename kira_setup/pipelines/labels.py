@@ -2,6 +2,8 @@
 
 from gitlab.v4.objects import Project
 
+from kira_setup.decorators import idempotent
+
 _LABELS = {
     'bug': '#FF0000',
     'feature': '#428BCA',
@@ -26,23 +28,24 @@ def _is_prioritized(label: str) -> bool:
     Tells if label is prioritized or not.
 
     >>> _is_prioritized('feature')
-    True
+    1
 
     >>> _is_prioritized('deadline:miss')
-    False
+    0
 
     """
-    return ':' not in label
+    return 0 if ':' in label else 1
 
 
-def create(project: Project) -> None:
+def create_labels(project: Project) -> None:
     """
     Creates all labels that are required for our projects.
 
     API: https://docs.gitlab.com/ee/api/labels.html
     """
+    safe_create = idempotent(project.labels.create)
     for label, color in _LABELS.items():
-        project.labels.create({
+        safe_create({
             'name': label,
             'color': color,
             'priority': _is_prioritized(label),
