@@ -34,7 +34,7 @@ def _is_prioritized(label: str) -> bool:
     0
 
     """
-    return 0 if ':' in label else 1
+    return bool(0 if ':' in label else 1)
 
 
 def create_labels(project: Project) -> None:
@@ -43,7 +43,7 @@ def create_labels(project: Project) -> None:
 
     API: https://docs.gitlab.com/ee/api/labels.html
     """
-    safe_create = idempotent(project.labels.create)
+    safe_create = idempotent(project.labels.create)  # type: ignore
     for label, color in _LABELS.items():
         safe_create({
             'name': label,

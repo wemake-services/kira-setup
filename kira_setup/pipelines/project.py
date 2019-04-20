@@ -4,9 +4,18 @@ from gitlab.v4.objects import Project
 
 from kira_setup.decorators import idempotent
 
+#: Used to enforce one-task = one-branch,
+#: also has a fallback for dependabot updates:
+branch_regex = r'^(issue-\d+)|(dependabot.*)|(master)$'
+
 #: Enforces conventional commits,
 #: see https://github.com/wemake-services/kira-release
-regex = r'^(revert: )?(feat|fix|docs|refactor|chore)(\(.+\))?:.{1,50}refs #\d+'
+commit_regex = r"""
+^(revert: )?
+(feat|fix|docs|build|refactor|chore)
+(\(.+\))?:
+.{1,50}(refs #\d+)?
+"""
 
 
 @idempotent
@@ -44,7 +53,7 @@ def push_rules(project: Project) -> None:
     rules.member_check = True
     rules.prevent_secrets = True
 
-    rules.branch_name_regex = r'^issue-\d+$'
-    rules.commit_message_regex = regex
+    rules.branch_name_regex = branch_regex
+    rules.commit_message_regex = commit_regex.replace('\n', '')
 
     rules.save()
