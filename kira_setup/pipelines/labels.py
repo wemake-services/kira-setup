@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
+from types import MappingProxyType
+
 from gitlab.v4.objects import Project
 
 from kira_setup.decorators import idempotent
 
-_LABELS = {
+_LABELS = MappingProxyType({
     'bug': '#FF0000',
     'feature': '#428BCA',
     'documentation': '#69D100',
@@ -20,7 +22,7 @@ _LABELS = {
 
     'notification:first': '#D1D100',
     'notification:last': '#F0AD4E',
-}
+})
 
 
 def _is_prioritized(label: str) -> bool:

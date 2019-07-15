@@ -13,7 +13,7 @@ def report_progress(function):
             function_result = function(*args, **kwargs)
             message = '{0} succeed'.format(function.__name__)
             print(colored(message, 'green'))  # noqa: T001
-            return function_result
+            return function_result  # noqa: Z331
         except Exception as exc:
             message = '{0} failed due to exception: {1}'.format(
                 function.__name__, exc,
