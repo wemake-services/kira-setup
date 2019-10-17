@@ -39,7 +39,7 @@ python-gitlab = "^1.8"
 termcolor = "^1.1"
 
 [tool.poetry.dev-dependencies]
-mypy = "^0.730"
+mypy = "^0.740"
 wemake-python-styleguide = "^0.10.0"
 safety = "^1.8"
 
