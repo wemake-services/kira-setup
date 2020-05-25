@@ -465,12 +465,15 @@ category = "main"
 description = "Interact with GitLab API"
 name = "python-gitlab"
 optional = false
-python-versions = "*"
-version = "1.15.0"
+python-versions = ">=3.6.0"
+version = "2.2.0"
 
 [package.dependencies]
-requests = ">=2.4.2"
-six = "*"
+requests = ">=2.22.0"
+
+[package.extras]
+autocompletion = ["argcomplete (>=1.10.0,<2)"]
+yaml = ["PyYaml (>=5.2)"]
 
 [[package]]
 category = "dev"
@@ -525,7 +528,7 @@ requests = "*"
 setuptools = "*"
 
 [[package]]
-category = "main"
+category = "dev"
 description = "Python 2 and 3 compatibility utilities"
 name = "six"
 optional = false
@@ -665,7 +668,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "ac25428252e23ddfcb415757d5113a3b8049b39ff36702962bbb44d63bbf03cb"
+content-hash = "981f2ae068c5606f8343a3276aa8b7f94a76987128ef22865d2d5a1b1baf2211"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -841,8 +844,8 @@ pyparsing = [
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 python-gitlab = [
-    {file = "python-gitlab-1.15.0.tar.gz", hash = "sha256:45125a0ed4d0027d4317bdbd71ca02fc52b0ac160b9d2c3c5be131b4d19f867e"},
-    {file = "python_gitlab-1.15.0-py3-none-any.whl", hash = "sha256:51ad36873b5c20cd21d9373db0936fb99c521575668320025d0fb519398d2e17"},
+    {file = "python-gitlab-2.2.0.tar.gz", hash = "sha256:4c4ea60c8303f4214522b18038df017cae35afda7474efa0b4e19c2e73bc3ae2"},
+    {file = "python_gitlab-2.2.0-py3-none-any.whl", hash = "sha256:4e1de6612ed1a5611e4bbcf1f2193ac870d928097663b55789888506de0b099f"},
 ]
 pyyaml = [
     {file = "PyYAML-5.3.1-cp27-cp27m-win32.whl", hash = "sha256:74809a57b329d6cc0fdccee6318f44b9b8649961fa73144a98735b0aaf029f1f"},

@@ -40,7 +40,7 @@ kira-setup = "kira_setup.cli:main"
 [tool.poetry.dependencies]
 python = "^3.6"
 
-python-gitlab = "^1.8"
+python-gitlab = ">=1.8,<3.0"
 termcolor = "^1.1"
 
 [tool.poetry.dev-dependencies]
