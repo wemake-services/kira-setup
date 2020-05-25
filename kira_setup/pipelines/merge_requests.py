@@ -3,7 +3,7 @@
 from gitlab.v4.objects import Project
 
 
-def approvals(project: Project) -> None:
+def approval_rules(project: Project) -> None:
     """
     Configures how approvals work for merge requests.
 

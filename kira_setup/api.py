@@ -9,7 +9,7 @@ from kira_setup.pipelines import labels, merge_requests, project, protected
 
 def _get_project(context) -> Project:
     gl = gitlab.Gitlab(
-        'https://' + context.domain,
+        'https://{0}'.format(context.domain),
         context.token,
         timeout=10,
     )
@@ -23,7 +23,7 @@ def _start_pipeline(current_project: Project) -> None:
         project.configure,
         project.push_rules,
 
-        merge_requests.approvals,
+        merge_requests.approval_rules,
 
         labels.create_labels,
 
@@ -37,5 +37,4 @@ def _start_pipeline(current_project: Project) -> None:
 
 def start_pipeline(context) -> None:
     """Main function to start the whole project-setup pipeline."""
-    current_project = _get_project(context)
-    _start_pipeline(current_project)
+    _start_pipeline(_get_project(context))

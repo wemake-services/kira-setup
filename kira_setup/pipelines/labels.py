@@ -19,24 +19,22 @@ _LABELS = MappingProxyType({
     'validation:labels': '#A295D6',
     'validation:stale': '#A295D6',
     'validation:invalid': '#7F8C8D',
+    'validation:estimate': '#D9534F',
 
     'notification:first': '#D1D100',
     'notification:last': '#F0AD4E',
 })
 
 
-def _is_prioritized(label: str) -> bool:
+def _is_prioritized(label: str) -> int:
     """
     Tells if label is prioritized or not.
 
-    >>> _is_prioritized('feature')
-    1
-
-    >>> _is_prioritized('deadline:miss')
-    0
+    >>> assert _is_prioritized('feature')
+    >>> assert not _is_prioritized('deadline:miss')
 
     """
-    return bool(0 if ':' in label else 1)
+    return 0 if ':' in label else 1
 
 
 def create_labels(project: Project) -> None:
