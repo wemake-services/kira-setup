@@ -466,7 +466,7 @@ description = "Interact with GitLab API"
 name = "python-gitlab"
 optional = false
 python-versions = ">=3.6.0"
-version = "2.3.0"
+version = "2.3.1"
 
 [package.dependencies]
 requests = ">=2.22.0"
@@ -844,8 +844,8 @@ pyparsing = [
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
 ]
 python-gitlab = [
-    {file = "python-gitlab-2.3.0.tar.gz", hash = "sha256:9cbfe604e306d44cdabca39bd507ce5a69ca68539b0dd4677e2bbd8f145d3a6e"},
-    {file = "python_gitlab-2.3.0-py3-none-any.whl", hash = "sha256:1e8fc763eeccbbbfcddf9be4d45fadc3de96efb7f2af6982e71fdf817e54c34d"},
+    {file = "python-gitlab-2.3.1.tar.gz", hash = "sha256:c2674ad0910e4fa4a68851fa571898b0417edf37049a064f8a1609928c70f303"},
+    {file = "python_gitlab-2.3.1-py3-none-any.whl", hash = "sha256:566be17f232cb162c595bc7d7a309d3a958805089cc221d549931fd739dcadc6"},
 ]
 pyyaml = [
     {file = "PyYAML-5.3.1-cp27-cp27m-win32.whl", hash = "sha256:74809a57b329d6cc0fdccee6318f44b9b8649961fa73144a98735b0aaf029f1f"},
