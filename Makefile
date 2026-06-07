@@ -11,11 +11,13 @@ help: ## Show the help message
 
 .PHONY: lint
 lint: ## Run Python linting.
-	poetry run flake8 kira_setup
+	poetry run ruff check --exit-non-zero-on-fix
+	poetry run ruff format --check --diff
+	poetry run flake8 .
 
 .PHONY: type-check
 type-check: ## Run static type checks.
-	poetry run mypy kira_setup
+	poetry run mypy .
 
 .PHONY: package
 package: ## Validate package metadata and dependencies.
