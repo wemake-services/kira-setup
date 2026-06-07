@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-import gitlab
+from gitlab import const
 from gitlab.v4.objects import Project
 
 from kira_setup.decorators import idempotent
@@ -15,8 +13,8 @@ def branches(project: Project) -> None:
     """
     project.protectedbranches.create({
         'name': 'master',
-        'merge_access_level': gitlab.DEVELOPER_ACCESS,
-        'push_access_level': gitlab.MAINTAINER_ACCESS,
+        'merge_access_level': const.DEVELOPER_ACCESS,
+        'push_access_level': const.MAINTAINER_ACCESS,
     })
 
 
@@ -29,5 +27,5 @@ def tags(project: Project) -> None:
     """
     project.protectedtags.create({
         'name': 'v*',
-        'create_access_level': gitlab.MAINTAINER_ACCESS,
+        'create_access_level': const.MAINTAINER_ACCESS,
     })

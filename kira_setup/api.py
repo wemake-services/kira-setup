@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import gitlab
 from gitlab.v4.objects import Project
 

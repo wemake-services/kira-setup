@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from types import MappingProxyType
 
 from gitlab.v4.objects import Project
