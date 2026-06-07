@@ -39,9 +39,6 @@ jobs:
           # Adding `poetry` to `$PATH`:
           echo "$HOME/.poetry/bin" >> "$GITHUB_PATH"
 
-      - name: Install just
-        uses: extractions/setup-just@v3
-
       - name: Install dependencies
         run: |
           # Python deps:
@@ -50,4 +47,4 @@ jobs:
           poetry install --all-extras --all-groups
 
       - name: Run checks
-        run: just test
+        run: make test

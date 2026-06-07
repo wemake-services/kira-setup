@@ -49,6 +49,3 @@ kira-setup = "kira_setup.cli:main"
 [project.urls]
 repository = "https://github.com/wemake-services/kira-setup"
 homepage = "https://github.com/wemake-services/kira-setup"
-
-[tool.nitpick]
-style = "https://raw.githubusercontent.com/wemake-services/wemake-python-styleguide/master/styles/nitpick-style-wemake.toml"
