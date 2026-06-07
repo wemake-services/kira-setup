@@ -1,49 +1,54 @@
-[build-system]
-requires = ["poetry>=1.0"]
-build-backend = "poetry.masonry.api"
-
-
-[tool.nitpick]
-style = "https://raw.githubusercontent.com/wemake-services/wemake-python-styleguide/master/styles/nitpick-style-wemake.toml"
-
-
-[tool.poetry]
+[project]
 name = "kira-setup"
 version = "0.1.0"
 description = "Kira's CLI to setup new projects"
-authors = ["sobolevn <mail@sobolevn.me>"]
-license = "MIT"
+requires-python = ">=3.11,<3.15"
 readme = "README.md"
+license = "MIT"
+dynamic = ["dependencies", "classifiers"]
 
-repository = "https://github.com/wemake-services/kira-setup"
-homepage = "https://github.com/wemake-services/kira-setup"
+authors = [
+  { name = "sobolevn", email = "mail@sobolevn.me" },
+  { name = "Alexander Kondratev", email = "mail@kondratev.dev" },
+]
 
 keywords = [
   "wemake.services",
   "gitlab-bot",
   "gitlab",
   "kira",
-  "kira-bot"
+  "kira-bot",
 ]
 
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Console",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
 ]
 
-[tool.poetry.scripts]
-kira-setup = "kira_setup.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
+
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python-gitlab = "^8.4"
+termcolor = "^3.3"
 
-python-gitlab = ">=1.8,<3.0"
-termcolor = "^1.1"
+[tool.poetry.group.dev.dependencies]
+mypy = "^2.1"
+wemake-python-styleguide = "^1.6"
+safety = "^3.8"
 
-[tool.poetry.dev-dependencies]
-mypy = "^0.902"
-wemake-python-styleguide = "^0.14"
-safety = "^1.10"
+
+[project.scripts]
+kira-setup = "kira_setup.cli:main"
+
+[project.urls]
+repository = "https://github.com/wemake-services/kira-setup"
+homepage = "https://github.com/wemake-services/kira-setup"
+
+[tool.nitpick]
+style = "https://raw.githubusercontent.com/wemake-services/wemake-python-styleguide/master/styles/nitpick-style-wemake.toml"
