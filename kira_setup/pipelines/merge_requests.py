@@ -5,7 +5,7 @@ def approval_rules(project: Project) -> None:
     """
     Configures how approvals work for merge requests.
 
-    API: https://docs.gitlab.com/ee/api/merge_request_approvals.html
+    API: https://docs.gitlab.com/api/merge_request_approvals/
     """
     approvals = project.approvals.get()
 

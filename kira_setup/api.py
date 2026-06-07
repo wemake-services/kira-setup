@@ -4,7 +4,13 @@ import gitlab
 from gitlab.v4.objects import Project
 
 from kira_setup.logging import report_progress
-from kira_setup.pipelines import labels, merge_requests, project, protected
+from kira_setup.pipelines import (
+    container_registry,
+    labels,
+    merge_requests,
+    project,
+    protected,
+)
 
 
 def _get_project(context: argparse.Namespace) -> Project:
@@ -30,6 +36,8 @@ def _start_pipeline(current_project: Project) -> None:
         # Protection Rules:
         protected.branches,
         protected.tags,
+        # Container Registry:
+        container_registry.cleanup_policy,
     ]
 
     for pipeline_item in pipeline:

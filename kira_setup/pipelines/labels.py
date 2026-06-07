@@ -11,7 +11,7 @@ _LABELS: Final = MappingProxyType({
     'feature': '#428BCA',
     'documentation': '#69D100',
     'research': '#5843AD',
-    # Deadlines:
+    # Deadline:
     'deadline:soft': '#AD4363',
     'deadline:hard': '#D10069',
     'deadline:miss': '#CC0033',
@@ -41,7 +41,7 @@ def create_labels(project: Project) -> None:
     """
     Creates all labels that are required for our projects.
 
-    API: https://docs.gitlab.com/ee/api/labels.html
+    API: https://docs.gitlab.com/api/labels/
     """
     safe_create = idempotent(project.labels.create)
     for label, color in _LABELS.items():

@@ -22,7 +22,7 @@ def star(project: Project) -> None:
     """
     Stars the given project.
 
-    API: https://docs.gitlab.com/ee/api/projects.html#star-a-project
+    API: https://docs.gitlab.com/api/project_starring/
     """
     project.star()
 
@@ -31,7 +31,7 @@ def configure(project: Project) -> None:
     """
     Configures basic things for a new project.
 
-    API: https://docs.gitlab.com/ee/api/projects.html#edit-project
+    API: https://docs.gitlab.com/api/projects/#manage-projects/
     """
     project.resolve_outdated_diff_discussions = True
     project.only_allow_merge_if_pipeline_succeeds = True
@@ -45,7 +45,7 @@ def push_rules(project: Project) -> None:
     """
     Sets all required push rules for the project.
 
-    API: https://docs.gitlab.com/ee/api/projects.html#push-rules-starter
+    API: https://docs.gitlab.com/api/project_push_rules/
     """
     # TODO: Add fallback for missing project push rules;
     # GET can return 404 or null on fresh projects.

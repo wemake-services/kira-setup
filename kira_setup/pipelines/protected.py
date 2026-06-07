@@ -9,7 +9,7 @@ def branches(project: Project) -> None:
     """
     Creates protected branch rules.
 
-    API: https://docs.gitlab.com/ee/api/protected_branches.html
+    API: https://docs.gitlab.com/api/protected_branches/
     """
     project.protectedbranches.create({
         'name': 'master',
@@ -23,7 +23,7 @@ def tags(project: Project) -> None:
     """
     Creates protected tag rules.
 
-    API: https://docs.gitlab.com/ee/api/protected_tags.html
+    API: https://docs.gitlab.com/api/protected_tags/
     """
     project.protectedtags.create({
         'name': 'v*',
