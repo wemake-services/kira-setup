@@ -4,6 +4,7 @@ from kira_setup.decorators import idempotent
 
 #: Used to enforce one-task = one-branch,
 #: also has a fallback for dependabot updates:
+# TODO: Also add renovate
 branch_regex = r'^(issue-\d+)|(dependabot.*)|(master)$'
 
 #: Enforces conventional commits,
@@ -46,6 +47,8 @@ def push_rules(project: Project) -> None:
 
     API: https://docs.gitlab.com/ee/api/projects.html#push-rules-starter
     """
+    # TODO: Add fallback for missing project push rules;
+    # GET can return 404 or null on fresh projects.
     rules = project.pushrules.get()
     rules.deny_delete_tag = True
     rules.member_check = True
