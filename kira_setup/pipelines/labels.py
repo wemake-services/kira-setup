@@ -1,24 +1,26 @@
 from types import MappingProxyType
+from typing import Final
 
 from gitlab.v4.objects import Project
 
 from kira_setup.decorators import idempotent
 
-_LABELS = MappingProxyType({
+_LABELS: Final = MappingProxyType({
+    # Common:
     'bug': '#FF0000',
     'feature': '#428BCA',
     'documentation': '#69D100',
     'research': '#5843AD',
-
+    # Deadlines:
     'deadline:soft': '#AD4363',
     'deadline:hard': '#D10069',
     'deadline:miss': '#CC0033',
-
+    # Validation:
     'validation:labels': '#A295D6',
     'validation:stale': '#A295D6',
     'validation:invalid': '#7F8C8D',
     'validation:estimate': '#D9534F',
-
+    # Notification:
     'notification:first': '#D1D100',
     'notification:last': '#F0AD4E',
 })
@@ -41,7 +43,7 @@ def create_labels(project: Project) -> None:
 
     API: https://docs.gitlab.com/ee/api/labels.html
     """
-    safe_create = idempotent(project.labels.create)  # type: ignore
+    safe_create = idempotent(project.labels.create)
     for label, color in _LABELS.items():
         safe_create({
             'name': label,
