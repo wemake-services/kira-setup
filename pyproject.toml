@@ -27,6 +27,12 @@ classifiers = [
   "Operating System :: OS Independent",
 ]
 
+[project.scripts]
+kira-setup = "kira_setup.cli:main"
+
+[project.urls]
+repository = "https://github.com/wemake-services/kira-setup"
+homepage = "https://github.com/wemake-services/kira-setup"
 
 [build-system]
 requires = ["poetry-core>=2.0"]
@@ -40,12 +46,111 @@ termcolor = "^3.3"
 [tool.poetry.group.dev.dependencies]
 mypy = "^2.1"
 wemake-python-styleguide = "^1.6"
+ruff = "^0.15"
 safety = "^3.8"
 
 
-[project.scripts]
-kira-setup = "kira_setup.cli:main"
+[tool.ruff]
+# Ruff config: https://docs.astral.sh/ruff/settings
+preview = true
+fix = true
+target-version = "py311"
+line-length = 80
 
-[project.urls]
-repository = "https://github.com/wemake-services/kira-setup"
-homepage = "https://github.com/wemake-services/kira-setup"
+[tool.ruff.format]
+quote-style = "single"
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = [
+  "A",    # flake8-builtins
+  "ASYNC",
+  "B",    # flake8-bugbear
+  "C4",   # flake8-comprehensions
+  "C90",  # maccabe
+  "COM",  # flake8-commas
+  "D",    # pydocstyle
+  "DTZ",  # flake8-datetimez
+  "E",    # pycodestyle
+  "ERA",  # flake8-eradicate
+  "EXE",  # flake8-executable
+  "F",    # pyflakes
+  "FA",   # flake8-future-annotations
+  "FBT",  # flake8-boolean-trap
+  "FLY",  # pyflint
+  "FURB", # refurb
+  "G",    # flake8-logging-format
+  "I",    # isort
+  "ICN",  # flake8-import-conventions
+  "ISC",  # flake8-implicit-str-concat
+  "LOG",  # flake8-logging
+  "N",    # pep8-naming
+  "PERF", # perflint
+  "PIE",  # flake8-pie
+  "PL",   # pylint
+  "PT",   # flake8-pytest-style
+  "PTH",  # flake8-use-pathlib
+  "Q",    # flake8-quotes
+  "RET",  # flake8-return
+  "RSE",  # flake8-raise
+  "RUF",  # ruff
+  "S",    # flake8-bandit
+  "SIM",  # flake8-simpify
+  "SLF",  # flake8-self
+  "SLOT", # flake8-slots
+  "T100", # flake8-debugger
+  "TRY",  # tryceratops
+  "UP",   # pyupgrade
+  "W",    # pycodestyle
+  "YTT",  # flake8-2020
+]
+ignore = [
+  "A005",   # allow to shadow stdlib and builtin module names
+  # Different doc rules that we don't really care about:
+  "D100",
+  "D104",
+  "D106",
+  "D203",
+  "D212",
+  "D401",
+  "D404",
+  "D405",
+  "ISC001",  # implicit string concat conflicts with `ruff format`
+  "ISC003",  # prefer explicit string concat over implicit concat
+  "PLR09",   # we have our own complexity rules
+  "PLR2004", # do not report magic numbers
+  "PLR6301", # do not require classmethod / staticmethod when self not used
+  "RUF067",  # wps handles `__init__.py` logic better
+  "TRY003",  # long exception messages from `tryceratops`
+]
+external = ["WPS"]
+
+# Plugin configs:
+flake8-quotes.inline-quotes = "single"
+mccabe.max-complexity = 6
+pydocstyle.convention = "google"
+
+
+[tool.mypy]
+# Mypy configuration:
+# https://mypy.readthedocs.io/en/latest/config_file.html
+enable_error_code = [
+  "truthy-bool",
+  "truthy-iterable",
+  "redundant-expr",
+  "unused-awaitable",
+  "ignore-without-code",
+  "possibly-undefined",
+  "redundant-self",
+  "explicit-override",
+  "unimported-reveal",
+  "deprecated",
+  "exhaustive-match",
+]
+
+explicit_package_bases = true
+ignore_missing_imports = true
+local_partial_types = true
+strict = true
+strict_bytes = true
+warn_unreachable = true
