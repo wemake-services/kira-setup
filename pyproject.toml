@@ -150,7 +150,7 @@ enable_error_code = [
 
 explicit_package_bases = true
 ignore_missing_imports = true
-local_partial_types = true
+extra_checks = true
 strict = true
-strict_bytes = true
+strict_equality_for_none = true
 warn_unreachable = true
