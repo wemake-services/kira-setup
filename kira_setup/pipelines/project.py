@@ -4,8 +4,7 @@ from kira_setup.decorators import idempotent
 
 #: Used to enforce one-task = one-branch,
 #: also has a fallback for dependabot updates:
-# TODO: Also add renovate
-branch_regex = r'^(issue-\d+)|(dependabot.*)|(master)$'
+branch_regex = r'^(issue-\d+)|(dependabot.*)|(renovate.*)|(master)$'
 
 #: Enforces conventional commits,
 #: see https://github.com/wemake-services/kira-release
