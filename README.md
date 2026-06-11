@@ -6,27 +6,64 @@
 [![wemake-python-styleguide](https://img.shields.io/badge/style-wemake-000000.svg)](https://github.com/wemake-services/wemake-python-styleguide)
 [![Dependencies Status](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)](https://github.com/wemake-services/kira-setup/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot)
 
-CLI utility to automate routine work with creating new projects.
+CLI utility to automate routine work with new projects.
 
 Part of the [`@kira`](https://github.com/wemake-services/kira) bots family.
 
-
-## Installation
-
-```
-pip install kira-setup
-```
-
-## Running
-
-```
-kira-setup group_or_user_name/project_name --token=YOUR_ACCESS_TOKEN
-```
+`kira-setup` does not create a repository. It configures an existing GitLab
+project so new repositories start with the same engineering standards.
 
 ## Features
 
-We use this CLI to setup high quality standards for our repository.
-Features that we care about:
-1. Protected `master` and tags for releases only
-2. Mandatory code reviews
-3. Integration with [`kira-stale`](https://github.com/wemake-services/kira-stale) and [`kira-release`](https://github.com/wemake-services/kira-release)
+- [x] Configures GitLab project defaults for a stricter merge flow
+- [x] Requires passing pipelines before merge
+- [x] Requires all discussions to be resolved before merge
+- [x] Sets fast-forward only merge strategy
+- [x] Configures merge request approval rules
+- [x] Protects the `master` branch and release tags matching `v*`
+- [x] Enforces push rules for branch names and commit messages
+- [x] Prevents secret pushes and enables member checks
+- [x] Creates a standard label set for triage and workflow
+- [x] Configures container registry cleanup policy
+
+## Installation
+
+Requirements:
+
+- Python 3.11+
+- An existing GitLab project
+- A GitLab access token with permission to manage project settings
+
+```bash
+pip install kira-setup
+```
+
+## Quick Start
+
+Run the CLI against an existing project:
+
+```bash
+kira-setup group-or-user/project-name --token YOUR_ACCESS_TOKEN
+```
+
+For self-hosted GitLab:
+
+```bash
+kira-setup group-or-user/project-name \
+  --token YOUR_ACCESS_TOKEN \
+  --domain gitlab.example.com
+```
+
+## Why Use It
+
+We use this CLI to make repository setup repeatable across projects.
+Instead of applying the same GitLab rules manually every time, `kira-setup`
+brings a new repository to the expected baseline in a single command.
+
+## Related Projects
+
+- [`kira`](https://github.com/wemake-services/kira): the full bots family
+- [`kira-stale`](https://github.com/wemake-services/kira-stale): stale issue and
+  pull request automation
+- [`kira-release`](https://github.com/wemake-services/kira-release): automated
+  semantic releases
