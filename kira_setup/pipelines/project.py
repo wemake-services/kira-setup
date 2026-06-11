@@ -1,3 +1,4 @@
+from gitlab.exceptions import GitlabGetError, GitlabParsingError
 from gitlab.v4.objects import Project
 
 from kira_setup.decorators import idempotent
@@ -45,15 +46,30 @@ def push_rules(project: Project) -> None:
     Sets all required push rules for the project.
 
     API: https://docs.gitlab.com/api/project_push_rules/
+
+    GitLab may return either `404` or `null` when push rules have not been
+    created yet. `python-gitlab` expects a dictionary response
+    for `project.pushrules.get()`, so a `null` response becomes
+    `None` and raises `GitlabParsingError`.
+
+    To handle both cases, this function first tries to fetch existing push
+    rules and falls back to creating them when the server reports that they
+    do not exist yet.
     """
-    # TODO: Add fallback for missing project push rules;
-    # GET can return 404 or null on fresh projects.
-    rules = project.pushrules.get()
-    rules.deny_delete_tag = True
-    rules.member_check = True
-    rules.prevent_secrets = True
+    payload = {
+        'deny_delete_tag': True,
+        'member_check': True,
+        'prevent_secrets': True,
+        'branch_name_regex': branch_regex,
+        'commit_message_regex': commit_regex.replace('\n', ''),
+    }
 
-    rules.branch_name_regex = branch_regex
-    rules.commit_message_regex = commit_regex.replace('\n', '')
+    try:
+        rules = project.pushrules.get()
+    except (GitlabGetError, GitlabParsingError):
+        project.pushrules.create(payload)
+    else:
+        for rule_name, rule_value in payload.items():
+            setattr(rules, rule_name, rule_value)
 
-    rules.save()
+        rules.save()
