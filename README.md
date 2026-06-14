@@ -63,6 +63,17 @@ kira-setup group-or-user/project-name \
   --skip protect-tags
 ```
 
+Available `--skip` values:
+
+- `star`
+- `configure`
+- `push-rules`
+- `approval-rules`
+- `labels`
+- `protect-branches`
+- `protect-tags`
+- `cleanup-policy`
+
 ## Why Use It
 
 We use this CLI to make repository setup repeatable across projects.
