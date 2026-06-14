@@ -1,4 +1,6 @@
 import argparse
+from types import MappingProxyType
+from typing import Final
 
 import gitlab
 from gitlab.v4.objects import Project
@@ -12,6 +14,22 @@ from kira_setup.pipelines import (
     protected,
 )
 
+PIPELINE_STEPS: Final = MappingProxyType({
+    # Project:
+    'star': project.star,
+    'configure': project.configure,
+    'push-rules': project.push_rules,
+    # Merge Requests:
+    'approval-rules': merge_requests.approval_rules,
+    # Labels:
+    'labels': labels.create_labels,
+    # Protection Rules:
+    'protect-branches': protected.branches,
+    'protect-tags': protected.tags,
+    # Container Registry:
+    'cleanup-policy': container_registry.cleanup_policy,
+})
+
 
 def _get_project(context: argparse.Namespace) -> Project:
     gl = gitlab.Gitlab(
@@ -23,27 +41,19 @@ def _get_project(context: argparse.Namespace) -> Project:
     return gl.projects.get(context.path)
 
 
-def _start_pipeline(current_project: Project) -> None:
-    pipeline = [
-        # Project:
-        project.star,
-        project.configure,
-        project.push_rules,
-        # Merge Requests:
-        merge_requests.approval_rules,
-        # Labels:
-        labels.create_labels,
-        # Protection Rules:
-        protected.branches,
-        protected.tags,
-        # Container Registry:
-        container_registry.cleanup_policy,
-    ]
+def _start_pipeline(
+    current_project: Project,
+    context: argparse.Namespace,
+) -> None:
+    skipped_steps = set(context.skip)
 
-    for pipeline_item in pipeline:
-        report_progress(pipeline_item)(current_project)
+    for step, action in PIPELINE_STEPS.items():
+        if step in skipped_steps:
+            continue
+
+        report_progress(action)(current_project)
 
 
 def start_pipeline(context: argparse.Namespace) -> None:
     """Main function to start the whole project-setup pipeline."""
-    _start_pipeline(_get_project(context))
+    _start_pipeline(_get_project(context), context)

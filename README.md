@@ -54,6 +54,15 @@ kira-setup group-or-user/project-name \
   --domain gitlab.example.com
 ```
 
+To skip specific setup steps, repeat `--skip` with the stable step name:
+
+```bash
+kira-setup group-or-user/project-name \
+  --token YOUR_ACCESS_TOKEN \
+  --skip labels \
+  --skip protect-tags
+```
+
 ## Why Use It
 
 We use this CLI to make repository setup repeatable across projects.
