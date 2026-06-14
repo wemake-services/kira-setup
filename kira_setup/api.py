@@ -45,10 +45,8 @@ def _start_pipeline(
     current_project: Project,
     context: argparse.Namespace,
 ) -> None:
-    skipped_steps = set(context.skip)
-
     for step, action in PIPELINE_STEPS.items():
-        if step in skipped_steps:
+        if step in context.skip:
             continue
 
         report_progress(action)(current_project)
