@@ -1,6 +1,6 @@
 import argparse
 
-from kira_setup.api import start_pipeline
+from kira_setup.api import PIPELINE_STEPS, start_pipeline
 
 
 def _create_parser() -> argparse.ArgumentParser:
@@ -13,6 +13,13 @@ def _create_parser() -> argparse.ArgumentParser:
         default='gitlab.com',
         type=str,
         help='GitLab domain address, change if you use custom installation',
+    )
+    parser.add_argument(
+        '--skip',
+        action='append',
+        choices=PIPELINE_STEPS.keys(),
+        default=[],
+        help='Skip a pipeline step, repeat this option to skip multiple steps',
     )
     return parser
 
