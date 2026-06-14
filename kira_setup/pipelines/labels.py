@@ -12,17 +12,17 @@ _LABELS: Final = MappingProxyType({
     'documentation': '#69D100',
     'research': '#5843AD',
     # Deadline:
-    'deadline:soft': '#AD4363',
-    'deadline:hard': '#D10069',
-    'deadline:miss': '#CC0033',
+    'deadline::soft': '#AD4363',
+    'deadline::hard': '#D10069',
+    'deadline::miss': '#CC0033',
     # Validation:
-    'validation:labels': '#A295D6',
-    'validation:stale': '#A295D6',
-    'validation:invalid': '#7F8C8D',
-    'validation:estimate': '#D9534F',
+    'validation::labels': '#A295D6',
+    'validation::stale': '#A295D6',
+    'validation::invalid': '#7F8C8D',
+    'validation::estimate': '#D9534F',
     # Notification:
-    'notification:first': '#D1D100',
-    'notification:last': '#F0AD4E',
+    'notification::first': '#D1D100',
+    'notification::last': '#F0AD4E',
 })
 
 
@@ -34,7 +34,7 @@ def _is_prioritized(label: str) -> int:
     >>> assert not _is_prioritized('deadline:miss')
 
     """
-    return 0 if ':' in label else 1
+    return 0 if '::' in label else 1
 
 
 def create_labels(project: Project) -> None:
