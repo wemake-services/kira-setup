@@ -5,6 +5,11 @@ Versions before `1.0.0` are `0Ver`-based:
 incremental in minor, bugfixes only are patches.
 
 
+## WIP
+
+- Synchronized labels with `kira-stale` bot, #6
+
+
 ## Version 0.2.0
 
 ### Features

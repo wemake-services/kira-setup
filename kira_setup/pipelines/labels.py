@@ -11,6 +11,7 @@ _LABELS: Final = MappingProxyType({
     'feature': '#428BCA',
     'documentation': '#69D100',
     'research': '#5843AD',
+    'dependencies': '#0080ff',
     # Deadline:
     'deadline::soft': '#AD4363',
     'deadline::hard': '#D10069',
@@ -23,6 +24,8 @@ _LABELS: Final = MappingProxyType({
     # Notification:
     'notification::first': '#D1D100',
     'notification::last': '#F0AD4E',
+    # Merge Request:
+    'mr::processed': '#E6E6FA',
 })
 
 
