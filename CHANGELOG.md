@@ -7,7 +7,9 @@ incremental in minor, bugfixes only are patches.
 
 ## WIP
 
-- Synchronized labels with `kira-stale` bot, #6
+### Bugfixes
+
+- Fixed unsynchronized labels with `kira-stale` bot, #6
 
 
 ## Version 0.2.0
