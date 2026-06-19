@@ -1,6 +1,6 @@
 [project]
 name = "kira-setup"
-version = "0.2.1"
+version = "0.2.2"
 description = "Kira's CLI to setup new projects"
 requires-python = ">=3.11,<3.15"
 readme = "README.md"
