@@ -5,7 +5,7 @@ Versions before `1.0.0` are `0Ver`-based:
 incremental in minor, bugfixes only are patches.
 
 
-## WIP
+## Version 0.2.1
 
 ### Bugfixes
 
