@@ -10,6 +10,8 @@ incremental in minor, bugfixes only are patches.
 ### Bugfixes
 
 - Fixed unsynchronized labels with `kira-stale` bot, #6
+- Fixed validation labels to use `validation:*` names instead of `validation::*`,
+  allowing multiple validation labels to be assigned simultaneously, #6
 
 
 ## Version 0.2.0

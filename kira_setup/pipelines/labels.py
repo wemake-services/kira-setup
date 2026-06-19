@@ -17,10 +17,12 @@ _LABELS: Final = MappingProxyType({
     'deadline::hard': '#D10069',
     'deadline::miss': '#CC0033',
     # Validation:
-    'validation::labels': '#A295D6',
-    'validation::stale': '#A295D6',
-    'validation::invalid': '#7F8C8D',
-    'validation::estimate': '#D9534F',
+    # NOTE: Uses `validation:*` (single colon) intentionally, since multiple
+    # validation labels can coexist on the same issue.
+    'validation:labels': '#A295D6',
+    'validation:stale': '#A295D6',
+    'validation:invalid': '#7F8C8D',
+    'validation:estimate': '#D9534F',
     # Notification:
     'notification::first': '#D1D100',
     'notification::last': '#F0AD4E',
