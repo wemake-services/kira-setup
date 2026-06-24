@@ -5,6 +5,13 @@ Versions before `1.0.0` are `0Ver`-based:
 incremental in minor, bugfixes only are patches.
 
 
+## WIP
+
+### Features
+
+- Added mandatory squash merge for all merge requests via `squash_option = 'always'`
+
+
 ## Version 0.2.2
 
 ### Bugfixes
