@@ -37,6 +37,7 @@ def configure(project: Project) -> None:
     project.only_allow_merge_if_pipeline_succeeds = True
     project.only_allow_merge_if_all_discussions_are_resolved = True
     project.merge_method = 'ff'
+    project.squash_option = 'always'
 
     project.save()
 
