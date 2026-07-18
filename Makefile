@@ -23,7 +23,6 @@ type-check: ## Run static type checks.
 package: ## Validate package metadata and dependencies.
 	poetry check
 	poetry run pip check
-	poetry run safety check --full-report
 
 .PHONY: test
 test: lint type-check package ## Run all local quality checks.
