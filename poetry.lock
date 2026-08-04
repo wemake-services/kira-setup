@@ -457,14 +457,14 @@ windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "python-gitlab"
-version = "8.4.0"
+version = "8.5.0"
 description = "The python wrapper for the GitLab REST and GraphQL APIs."
 optional = false
 python-versions = ">=3.10.0"
 groups = ["main"]
 files = [
-    {file = "python_gitlab-8.4.0-py3-none-any.whl", hash = "sha256:102c747d9c107820e215cc5913627388001592a9a3ba1b43fc341a40f6943e72"},
-    {file = "python_gitlab-8.4.0.tar.gz", hash = "sha256:f36f20ec3f09138f3b12089394941f4dbe5a407021bed71b70a04bbdd37b8a74"},
+    {file = "python_gitlab-8.5.0-py3-none-any.whl", hash = "sha256:94228973c54f09eccd30f5160eca91200adc31d6ed0c894221a3865b90f96426"},
+    {file = "python_gitlab-8.5.0.tar.gz", hash = "sha256:628529ec4ce1f9a7ba2c145b2cf5e4eeca3015418e504b2e6fba70171b6b1b59"},
 ]
 
 [package.dependencies]
@@ -472,7 +472,7 @@ requests = ">=2.32.0"
 requests-toolbelt = ">=1.0.0"
 
 [package.extras]
-autocompletion = ["argcomplete (>=1.10.0,<3)"]
+autocompletion = ["argcomplete (>=1.10.0,<4)"]
 graphql = ["gql[httpx] (>=3.5.0,<5)"]
 yaml = ["PyYaml (>=6.0.1)"]
 
@@ -606,4 +606,4 @@ pygments = ">=2.19,<3.0"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.15"
-content-hash = "704ecdf75d85ebe4ca405812803551d493b13af33acf0d08bd818b9ba37d7f76"
+content-hash = "87c87a5243f29d8ef9677c8235c9db8484fe3593e7f4b044a70f4f68dc30d4d2"
