@@ -50,7 +50,7 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry.dependencies]
-python-gitlab = "^8.4"
+python-gitlab = "^8.5"
 termcolor = "^3.3"
 
 [tool.poetry.group.dev.dependencies]
