@@ -464,14 +464,14 @@ windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "python-gitlab"
-version = "8.5.0"
+version = "8.6.0"
 description = "The python wrapper for the GitLab REST and GraphQL APIs."
 optional = false
 python-versions = ">=3.10.0"
 groups = ["main"]
 files = [
-    {file = "python_gitlab-8.5.0-py3-none-any.whl", hash = "sha256:94228973c54f09eccd30f5160eca91200adc31d6ed0c894221a3865b90f96426"},
-    {file = "python_gitlab-8.5.0.tar.gz", hash = "sha256:628529ec4ce1f9a7ba2c145b2cf5e4eeca3015418e504b2e6fba70171b6b1b59"},
+    {file = "python_gitlab-8.6.0-py3-none-any.whl", hash = "sha256:34fee7e5576cf01982c4bfa98f94d50e24733edb66beba3cb8ef286287723019"},
+    {file = "python_gitlab-8.6.0.tar.gz", hash = "sha256:d1602164fb58ab280ceef460faf015cec6e7d83bb2d9cbae44ba448adb5568ef"},
 ]
 
 [package.dependencies]
@@ -616,4 +616,4 @@ mcp = ["mcp[cli] (>=2.0,<3.0)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.15"
-content-hash = "6b0bd79fcfaa7b161f9f68da8cb794afde1c5ccc3ef8c9d25c50501771e5d960"
+content-hash = "52661b9227227b57e8d6e91586960ac6e6f6ed18243c28df8e27d83bc24b0ec1"
