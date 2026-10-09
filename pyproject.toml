@@ -54,7 +54,7 @@ python-gitlab = "^8.6"
 termcolor = "^3.3"
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^2.3"
+mypy = "^2.4"
 wemake-python-styleguide = "^1.8"
 ruff = "^0.16"
 
