@@ -3,12 +3,12 @@ from gitlab.v4.objects import Project
 
 from kira_setup.decorators import idempotent
 
-#: Used to enforce one-task = one-branch,
-#: also has a fallback for dependabot updates:
+# Used to enforce one-task = one-branch,
+# also has a fallback for dependabot updates:
 branch_regex = r'^(issue-\d+)|(dependabot.*)|(renovate.*)|(master)$'
 
-#: Enforces conventional commits,
-#: see https://github.com/wemake-services/kira-release
+# Enforces conventional commits,
+# see https://github.com/wemake-services/kira-release
 commit_regex = r"""
 ^(revert: )?
 (feat|fix|docs|build|refactor|chore)
