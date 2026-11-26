@@ -55,7 +55,7 @@ termcolor = "^3.3"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^2.4"
-wemake-python-styleguide = "^1.8"
+wemake-python-styleguide = "^1.9"
 ruff = "^0.17"
 
 
